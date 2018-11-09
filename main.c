@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:49:25 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/09 19:38:18 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/09 20:46:52 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(void)
 {
 	int i;
 	int j;
+	char c;
 	char str[] = "Hello World!";
 	char str2[] = "Coucou";
 	char str3[] = "Coucou";
@@ -32,6 +33,7 @@ int	main(void)
 	char str6[5];
 	char str7[10];
 	char str8[10];
+	char str_atoi[257];
 
 //ft_strlen//
 	ft_putstr(YEL "ft_strlen\n");
@@ -413,6 +415,15 @@ int	main(void)
 	if (j == 0) 
 		ft_putendl(GRN "test OK :)" RESET);
 
-//
+//ft_atoi//
+	ft_putendl(YEL "\nft_atoi" RESET);
+	c = 0;
+	i = 0;
+	while (i <= 256)
+	{
+		str_atoi[i] = c;
+		c++;
+	}
+	ft_putnbr(atoi(str_atoi));
 	return (0);
 }
