@@ -6,17 +6,17 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:47:46 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/09 14:11:24 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/09 18:04:56 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strstr(const char *haystack, const char *needle)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	int i;
-	int j;
-	char *ptr;
+	int		i;
+	int		j;
+	char	*ptr;
 
 	i = 0;
 	if (*needle == 0)

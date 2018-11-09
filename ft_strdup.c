@@ -6,16 +6,16 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:49:25 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/08 17:19:47 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/09 18:02:01 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
-	int i;
-	char *s2;
+	int		i;
+	char	*s2;
 
 	i = 0;
 	if (!(s2 = (char*)malloc(sizeof(*s1))))
@@ -25,6 +25,6 @@ char *ft_strdup(const char *s1)
 		s2[i] = s1[i];
 		i++;
 	}
-		s2[i] = '\0';
-		return (s2);
+	s2[i] = '\0';
+	return (s2);
 }

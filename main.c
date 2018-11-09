@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:49:25 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/09 16:57:42 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/09 19:38:18 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -277,23 +277,142 @@ int	main(void)
 
 //ft_isalpha//
 	ft_putendl(YEL "\nft_isalpha" RESET);
-	i = 'A';
-	while (i <= 'Z')
+	i = 0;
+	while (i <= 127)
 	{
 		if (ft_isalpha(i) != isalpha(i))
-			ft_putendl(RED "error test MAJ :(" RESET);
+			ft_putendl(RED "error test :(" RESET);
 		i++;
 	}
-	ft_putendl(GRN "test MAJ OK :)" RESET);
-	i = 'a';
-	while (i <= 'z')
-	{
-		if (ft_isalpha(i) != isalpha(i))
-			ft_putendl(RED "error test min :(" RESET);
-		i++;
-	}
-	ft_putendl(GRN "test min OK :)" RESET);
+	ft_putendl(GRN "test OK :)" RESET);
 
 //ft_isdigit//
+	ft_putendl(YEL "\nft_isdigit" RESET);
+	i = 0;
+	while (i <= 127)
+	{
+		if (ft_isdigit(i) != isdigit(i))
+			ft_putendl(RED "error test :(" RESET);
+		i++;
+	}
+	ft_putendl(GRN "test OK :)" RESET);
+
+//ft_isalnum//
+	ft_putendl(YEL "\nft_isalnum" RESET);
+	i = 0;
+	j = 0;
+	while (i <= 256)
+	{ 
+		if (ft_isalnum(i) != isalnum(i))
+		{
+			ft_putendl(RED "error test :(" RESET);
+			ft_putstr("for i = ");
+			ft_putnbr(i);
+			j = 1;
+		}
+		i++;
+	}
+	if (j == 0)
+		ft_putendl(GRN "test OK :)" RESET);
+
+//ft_isascii//
+	ft_putendl(YEL "\nft_isascii" RESET);
+	i = 0;
+	j = 0;
+	while (i <= 256)
+	{ 
+		if (ft_isascii(i) != isascii(i))
+		{
+			ft_putendl(RED "error test :(" RESET);
+			ft_putstr("for i = ");
+			ft_putnbr(i);
+			j = 1;
+		}
+		i++;
+	}
+	if (j == 0)
+		ft_putendl(GRN "test OK :)" RESET);
+
+//ft_isprint//
+	ft_putendl(YEL "\nft_isprint" RESET);
+	i = 0;
+	j = 0;
+	while (i <= 256)
+	{ 
+		if (ft_isprint(i) != isprint(i))
+		{
+			ft_putendl(RED "error test :(" RESET);
+			ft_putstr("for i = ");
+			ft_putnbr(i);
+			ft_putchar(' ');
+			ft_putstr("ft_isprint should return ");
+			ft_putnbr(isprint(i));
+			ft_putchar('\n');
+			j = 1;
+		}
+		i++;
+	}
+	if (j == 0) 
+		ft_putendl(GRN "test OK :)" RESET);
+
+//ft_toupper//
+	ft_putendl(YEL "\nft_toupper" RESET);
+	i = 0;
+	j = 0;
+	while (i <= 256)
+	{
+		if (ft_toupper(i) != toupper(i))
+		{
+			ft_putendl(RED "error test :(" RESET);
+			ft_putstr("for i = ");
+			ft_putnbr(i);
+			ft_putchar(' ');
+			ft_putstr("ft_toupper should return ");
+			ft_putnbr(toupper(i));
+			ft_putchar('\n');
+			j = 1;
+		}
+		if (i >= 'a' && i <= 'z')
+		{
+			ft_putchar(i);
+			ft_putchar('=');
+			ft_putchar(ft_toupper(i));
+			ft_putchar('\n');
+		}
+		i++;
+	}
+	if (j == 0) 
+		ft_putendl(GRN "test OK :)" RESET);
+	
+//ft_tolower//
+	ft_putendl(YEL "\nft_toupper" RESET);
+	i = 0;
+	j = 0;
+	while (i <= 256)
+	{
+		if (ft_tolower(i) != tolower(i))
+		{
+			ft_putendl(RED "error test :(" RESET);
+			ft_putstr("for i = ");
+			ft_putnbr(i);
+			ft_putchar(' ');
+			ft_putstr("ft_tolower should return ");
+			ft_putnbr(tolower(i));
+			ft_putchar('\n');
+			j = 1;
+		}
+		if (i >= 'A' && i <= 'Z')
+		{
+			ft_putchar(i);
+			ft_putchar('=');
+			ft_putchar(ft_tolower(i));
+			ft_putchar('\n');
+		}
+		i++;
+	}
+	if (j == 0) 
+		ft_putendl(GRN "test OK :)" RESET);
+
+//
 	return (0);
 }
