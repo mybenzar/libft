@@ -144,7 +144,6 @@ int	main(void)
 	ft_strclr(str6);
 
 //ft_strcnpy//
-		
 	ft_putendl(YEL "\nft_strncpy" RESET);
 	if (ft_strcmp(ft_strncpy(str7, "coucou", 3), strncpy(str8, "coucou", 3)) != 0)
 		ft_putendl(RED "error test1 :(" RESET);
@@ -419,11 +418,97 @@ int	main(void)
 	ft_putendl(YEL "\nft_atoi" RESET);
 	c = 0;
 	i = 0;
-	while (i <= 256)
-	{
-		str_atoi[i] = c;
-		c++;
-	}
+	ft_strcat(str_atoi, "hello comment 42 ca va ++-- 23947684623 -65");
+	ft_putstr("ft_atoi = ");
+	ft_putnbr(ft_atoi(str_atoi));
+	ft_putchar('\n');
+	ft_putstr("atoi = ");
 	ft_putnbr(atoi(str_atoi));
+	ft_putchar('\n');
+	if (ft_atoi(str_atoi) != atoi(str_atoi))
+		ft_putendl(RED "error test1 :(" RESET);
+	else
+		ft_putendl(GRN "test! ok :)" RESET);
+	ft_strclr(str_atoi);
+	ft_strcat(str_atoi, "42234567 -89023947");
+	ft_putstr("ft_atoi = ");
+	ft_putnbr(ft_atoi(str_atoi));
+	ft_putchar('\n');
+	ft_putstr("atoi = ");
+	ft_putnbr(atoi(str_atoi));
+	ft_putchar('\n');
+	if (ft_atoi(str_atoi) != atoi(str_atoi))
+		ft_putendl(RED "error test2 :(" RESET);
+	else
+		ft_putendl(GRN "test2 ok :)" RESET);
+	ft_strclr(str_atoi);
+	ft_strcat(str_atoi, "-4225 67");
+	ft_putstr("ft_atoi = ");
+	ft_putnbr(ft_atoi(str_atoi));
+	ft_putchar('\n');
+	ft_putstr("atoi = ");
+	ft_putnbr(atoi(str_atoi));
+	ft_putchar('\n');
+	if (ft_atoi(str_atoi) != atoi(str_atoi))
+		ft_putendl(RED "error test3 :(" RESET);
+	else
+		ft_putendl(GRN "test3 ok :)" RESET);
+	ft_strclr(str_atoi);
+	ft_strcat(str_atoi, "-+42257");
+	ft_putstr("ft_atoi = ");
+	ft_putnbr(ft_atoi(str_atoi));
+	ft_putchar('\n');
+	ft_putstr("atoi = ");
+	ft_putnbr(atoi(str_atoi));
+	ft_putchar('\n');
+	if (ft_atoi(str_atoi) != atoi(str_atoi))
+		ft_putendl(RED "error test4 :(" RESET);
+	else
+		ft_putendl(GRN "test4 ok :)" RESET);
+
+//ft_strchr//
+	ft_putendl(YEL "\nft_strchr" RESET);
+	ft_putstr("ft_strchr = ");
+	ft_putendl(ft_strchr(str, 'l'));
+	ft_putstr("strchr = ");
+	ft_putendl(strchr(str, 'l'));
+	if (ft_strcmp(ft_strchr(str, 'l'), strchr(str, 'l')) != 0)
+		ft_putendl(RED "error test1 :(" RESET);
+	else
+		ft_putendl(GRN "test1 OK :)" RESET);
+
+	ft_putstr("ft_strchr = ");
+	ft_putendl(ft_strchr(str, '\0'));
+	ft_putstr("strchr = ");
+	ft_putendl(strchr(str, '\0'));
+	if (ft_strchr(str, '\0') != strchr(str, '\0'))
+		ft_putendl(RED "error test2 :(" RESET);
+	else
+		ft_putendl(GRN "test2 OK :)" RESET);
+
+	if (ft_strchr(str, 'k') == '\0' && strchr(str, 'k') == '\0')
+		ft_putendl(GRN "test3 OK :)" RESET);
+	else
+		ft_putendl(RED "error test3 :(" RESET);
+
+//ft_strrchr//
+	ft_putendl(YEL "\nft_strrchr" RESET);
+	ft_putstr("ft_strrchr = ");
+	ft_putendl(ft_strrchr(str, 'l'));
+	ft_putstr("strrchr = ");
+	ft_putendl(strrchr(str, 'l'));
+	if (ft_strcmp(ft_strrchr(str, 'l'), strrchr(str, 'l')) != 0)
+		ft_putendl(RED "error test1 :(" RESET);
+	else
+		ft_putendl(GRN "test1 OK :)" RESET);
+
+	ft_putstr("ft_strrchr = ");
+	ft_putendl(ft_strrchr(str, '\0'));
+	ft_putstr("strrchr = ");
+	ft_putendl(strrchr(str, '\0'));
+	if (ft_strrchr(str, '\0') != strrchr(str, '\0'))
+		ft_putendl(RED "error test2 :(" RESET);
+	else
+		ft_putendl(GRN "test2 OK :)" RESET);
 	return (0);
 }
