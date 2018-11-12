@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:49:25 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/12 15:51:59 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/12 20:15:45 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	main(void)
 	char str7[10];
 	char str8[10];
 	char str_atoi[257];
+	char *ptr;
 
 //ft_strlen//
 	ft_putstr(YEL "ft_strlen\n");
@@ -622,5 +623,106 @@ int	main(void)
 		ft_putendl("verifier que le cat de test4 donne bien '42'");
 		ft_putendl(GRN "test1 OK :)" RESET);
 	}
+
+//ft_bzero//
+	ft_putendl(YEL "\nft_bzero" RESET);
+	ft_strcat(str7, "coucou");
+	ft_putendl(str7);
+	ft_bzero(str7, 6);
+	if (*str7)
+		ft_putendl(RED "error test1 :(" RESET);
+	else	
+		ft_putendl(GRN "test1 OK :)" RESET);
+
+//ft_memalloc//
+	ft_putendl(YEL "\nft_memalloc" RESET);
+	ptr = (char *)ft_memalloc(7*sizeof(char*));
+	i = 0;
+	ft_putstr("before = ");
+	ft_putendl(ptr);
+	while (i <= 7)
+	{
+		ptr[i] = 'a';
+		i++;
+	}
+	ft_putstr("after = ");
+	ft_putendl(ptr);
+	if (ft_strlen(ptr) == 8)
+		ft_putendl(GRN "test1 OK :)" RESET);
+	else	
+		ft_putendl(RED "error test1 :(" RESET);
+	ft_strclr(ptr);
+
+//ft_memset//
+	ft_putendl(YEL "\nft_memset" RESET);
+	ft_putstr("before = ");
+	ft_putendl(str7);
+	ft_memset(str7, 'c', 3);
+	ft_putstr("after = ");
+	ft_putendl(str7);
+	if (ft_strlen(str7) == 3)
+		ft_putendl(GRN "test1 OK :)" RESET);
+	else	
+		ft_putendl(RED "error test1 :(" RESET);
+	ft_strclr(str7);
+	
+//ft_memcpy//
+	ft_putendl(YEL "\nft_memcpy" RESET);
+	if (ft_strcmp((char*)ft_memcpy(str7, "coucou", 3),
+				 (char*)memcpy(str8, "coucou", 3)) != 0)
+		ft_putendl(RED "error test1 :(" RESET);
+	else
+		ft_putendl(GRN "test1 OK :)" RESET);
+	ft_strclr(str7);
+	ft_strclr(str8);
+	if (ft_strcmp(ft_memcpy(str5, "hell", 2), memcpy(str6, "hell", 2)) != 0)
+		ft_putendl(RED "error test2 :(" RESET);
+	else
+		ft_putendl(GRN "test2 OK :)" RESET);
+	ft_strclr(str5);
+	ft_strclr(str6);
+	if (ft_strcmp(ft_memcpy(str7, "coucoutoi", 6), 
+				memcpy(str8, "coucoutoi", 6)) != 0)
+		ft_putendl(RED "error test3 :(" RESET);
+	else
+		ft_putendl(GRN "test3 OK :)");
+	ft_strclr(str7);
+	ft_strclr(str8);
+	if (ft_strcmp(ft_memcpy(str7, "couci", 6), 
+				memcpy(str8, "couci", 6)) != 0)
+		ft_putendl(RED "error test4 :(");
+	else
+		ft_putendl(GRN "test4 OK :)");
+	ft_strclr(str7);
+	ft_strclr(str8);
+
+//ft_memccpy//
+	ft_putendl(YEL "\nft_memccpy" RESET);
+	if (ft_strcmp(ft_memccpy(str7, "coucou", 'c', 3),
+				 (memccpy(str8, "coucou", 'c', 3))) != 0)
+		ft_putendl(RED "error test1 :(" RESET);
+	else
+		ft_putendl(GRN "test1 OK :)" RESET);
+	ft_strclr(str7);
+	ft_strclr(str8);
+	if (ft_memccpy(str5, "hell", 'c', 2) != memccpy(str6, "hell", 'c', 2))
+		ft_putendl(RED "error test2 :(" RESET);
+	else
+		ft_putendl(GRN "test2 OK :)" RESET);
+	ft_strclr(str5);
+	ft_strclr(str6);
+	if (ft_memccpy(str7, "coucoutoi", 't', 6) != memccpy(str8, "coucoutoi", 't', 6))
+		ft_putendl(RED "error test3 :(" RESET);
+	else
+		ft_putendl(GRN "test3 OK :)" RESET);
+	ft_strclr(str7);
+	ft_strclr(str8);
+	if (ft_memccpy(str7, "couci", 's', 6) != memccpy(str8, "couci", 's', 6))
+		ft_putendl(RED "error test4 :(");
+	else
+		ft_putendl(GRN "test4 OK :)");
+	ft_strclr(str7);
+	ft_strclr(str8);
+
 	return (0);
 }

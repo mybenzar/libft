@@ -6,7 +6,7 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 16:20:39 by mybenzar          #+#    #+#              #
-#    Updated: 2018/11/08 16:35:02 by mybenzar         ###   ########.fr        #
+#    Updated: 2018/11/12 20:27:04 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,5 +28,4 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 
-re: fclean
-	@make
+re: fclean all

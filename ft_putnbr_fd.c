@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 15:44:09 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/12 15:53:22 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/12 20:40:09 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('-', fd);
 		ft_putchar_fd('2', fd);
 		ft_putnbr_fd(147483648, fd);
+		return ;
 	}
 	if (n < 0)
 	{
