@@ -6,13 +6,14 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:49:25 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/09 20:46:52 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/12 15:51:59 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 #include <ctype.h>
+#include <fcntl.h>
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[32m"
 #define YEL   "\x1B[33m"
@@ -20,10 +21,25 @@
 #define RESET "\x1B[0m"
 #define CLEAR "ft_strclr(str5); ft_strclr(str6); ft_strclr(str7); ft_strclr(str8)"
 
+void	ft_putchari(unsigned int i, char *s)
+{
+	i = 0;
+	while (s[i] != '\0')
+	{
+		ft_putchar(s[i]);
+		ft_putchar(' ');
+		ft_putstr("index = ");
+		ft_putnbr(i);
+		ft_putchar ('\n');
+		i++;
+	}
+}
+
 int	main(void)
 {
 	int i;
 	int j;
+	int fd;
 	char c;
 	char str[] = "Hello World!";
 	char str2[] = "Coucou";
@@ -510,5 +526,101 @@ int	main(void)
 		ft_putendl(RED "error test2 :(" RESET);
 	else
 		ft_putendl(GRN "test2 OK :)" RESET);
+
+//ft_striter//
+	ft_putendl(YEL "\nft_striter" RESET);
+	ft_strcat(str7, "hello world");
+	ft_putstr("before = ");
+	ft_putendl(str7);
+	ft_striter(str7, ft_strclr);
+	ft_putstr("after"); 
+	ft_putendl(str7);
+	if (str7[0] == '\0')
+		ft_putendl(GRN "test1 OK :)" RESET);
+	else
+		ft_putendl(RED "error test1 :(" RESET);
+
+//ft_striteri//
+	ft_putendl(YEL "\nft_striteri" RESET);
+
+//ft_strnequ//
+	ft_putendl(YEL "\nft_strnequ" RESET);
+	if (ft_strnequ("hello", "hel", 3) != 0)
+		ft_putendl(GRN "test1 OK :)" RESET);
+	else
+		ft_putendl(RED "error test1 :(" RESET);
+	if (ft_strnequ("hello", "hep", 3) == 0)
+		ft_putendl(GRN "test2 OK :)" RESET);
+	else
+		ft_putendl(RED "error test2 :(" RESET);
+
+//ft_strequ//
+	ft_putendl(YEL "\nft_strequ" RESET);
+	if (ft_strequ("hello", "hel") == 0)
+		ft_putendl(GRN "test1 OK :)" RESET);
+	else
+		ft_putendl(RED "error test1 :(" RESET);
+
+//ft_putchar_fd//
+	ft_putendl(YEL "\nft_putchar_fd" RESET);
+	fd = open("test", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	ft_putchar_fd('c', fd);
+	if (fd == -1)
+		ft_putendl(RED "error test1 :(" RESET);
+	else
+	{
+		ft_putstr("fd = ");
+		ft_putnbr(fd);
+		ft_putchar('\n');
+		ft_putendl("verifier que le cat de test donne bien 'c'");
+		ft_putchar('\n');
+		ft_putendl(GRN "test1 OK :)" RESET);
+	}
+
+//ft_putstr_fd//
+	ft_putendl(YEL "\nft_putstr_fd" RESET);
+	fd = open("test2", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	ft_putstr_fd("coucou", fd);
+	if (fd == -1)
+		ft_putendl(RED "error test1 :(" RESET);
+	else
+	{
+		ft_putstr("fd = ");
+		ft_putnbr(fd);
+		ft_putchar('\n');
+		ft_putendl("verifier que le cat de test2 donne bien 'coucou'");
+		ft_putendl(GRN "test1 OK :)" RESET);
+	}
+
+//ft_putendl_fd//
+	ft_putendl(YEL "\nft_putendl_fd" RESET);
+	fd = open("test3", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	ft_putendl_fd("coucou", fd);
+	if (fd == -1)
+		ft_putendl(RED "error test1 :(" RESET);
+	else
+	{
+		ft_putstr("fd = ");
+		ft_putnbr(fd);
+		ft_putchar('\n');
+		ft_putendl("verifier que le cat -e de test3 donne bien 'coucou$'");
+		ft_putendl(GRN "test1 OK :)" RESET);
+	}
+
+
+//ft_putnbr_fd//
+	ft_putendl(YEL "\nft_putnbr_fd" RESET);
+	fd = open("test4", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	ft_putnbr_fd(42, fd);
+	if (fd == -1)
+		ft_putendl(RED "error test1 :(" RESET);
+	else
+	{
+		ft_putstr("fd = ");
+		ft_putnbr(fd);
+		ft_putchar('\n');
+		ft_putendl("verifier que le cat de test4 donne bien '42'");
+		ft_putendl(GRN "test1 OK :)" RESET);
+	}
 	return (0);
 }
