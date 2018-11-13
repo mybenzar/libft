@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:47:46 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/13 16:37:15 by mybenzar         ###   ########.fr       */
+/*   Created: 2018/11/13 19:56:37 by mybenzar          #+#    #+#             */
+/*   Updated: 2018/11/13 20:15:38 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
+	char 	*str;
 	int		i;
-	int		j;
-	char	*ptr;
 
-	i = 0;
-	if (*needle == 0)
+	i = (int)start;
+	if (!(str = ft_memalloc(len + 1)))
+		return (NULL);
+	while (i < (int)len)
 	{
-		ptr = (char*)haystack;
-		return (ptr);
-	}
-	while (haystack[i] != 0)
-	{
-		j = 0;
-		while (haystack[i + j] == needle[j])
-		{
-			j++;
-			if (needle[j] == 0)
-			{
-				ptr = (char*)(haystack + i);
-				return (ptr);
-			}
-		}
+		str[i] = s[i];
 		i++;
 	}
-	return (0);
+	str[len] = '\0';
+	return (str);
 }

@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:47:46 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/13 16:37:15 by mybenzar         ###   ########.fr       */
+/*   Created: 2018/11/13 19:51:12 by mybenzar          #+#    #+#             */
+/*   Updated: 2018/11/13 19:54:45 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	int		i;
-	int		j;
-	char	*ptr;
+	char	*str;
 
 	i = 0;
-	if (*needle == 0)
+	if (!(str = ft_memalloc(ft_strlen((char*)s) + 1)))
+		return (NULL);
+	while (s[i] != '\0')
 	{
-		ptr = (char*)haystack;
-		return (ptr);
-	}
-	while (haystack[i] != 0)
-	{
-		j = 0;
-		while (haystack[i + j] == needle[j])
-		{
-			j++;
-			if (needle[j] == 0)
-			{
-				ptr = (char*)(haystack + i);
-				return (ptr);
-			}
-		}
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	return (0);
+	return (str);
 }
