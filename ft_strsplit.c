@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 19:56:37 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/14 09:29:12 by mybenzar         ###   ########.fr       */
+/*   Created: 2018/11/14 18:16:27 by mybenzar          #+#    #+#             */
+/*   Updated: 2018/11/14 19:39:46 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	**ft_strsplit(char const *s, char c)
 {
-	char 	*str;
 	int		i;
+	int		j;
+	char	**tab;
 
 	i = 0;
-	if (!(str = (char*)ft_memalloc(len + 1)))
-		return (NULL);
-	while (i < (int)len)
+	j = 0;
+	while (s[i] != '\0')
 	{
-		str[i] = s[i + start];
+		if (s[i] != c)
+		{
+			if (!(tab = ft_memalloc(i - j + 1)))
+				return (NULL);
+			tab[i] = ft_strsub(s, i, (size_t)(i - j + 1));
+			j = 0;
+		}
 		i++;
+		j++;
 	}
-	str[len] = '\0';
-	return (str);
+	tab[i] = 0;
+	return (tab);
 }

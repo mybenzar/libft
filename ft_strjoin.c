@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 19:56:37 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/14 09:29:12 by mybenzar         ###   ########.fr       */
+/*   Created: 2018/11/14 09:30:29 by mybenzar          #+#    #+#             */
+/*   Updated: 2018/11/14 09:46:55 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char 	*str;
-	int		i;
+	char *str;
 
-	i = 0;
-	if (!(str = (char*)ft_memalloc(len + 1)))
+	if (!(str = (char*)ft_memalloc(ft_strlen(((char*)s1) + ft_strlen((char*)s2) + 1))))
 		return (NULL);
-	while (i < (int)len)
-	{
-		str[i] = s[i + start];
-		i++;
-	}
-	str[len] = '\0';
+	str = ft_strsub((char const*)s1, 0, ft_strlen((char*)s1));
+	str = ft_strcat(str, (char*)s2);
 	return (str);
 }
