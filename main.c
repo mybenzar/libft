@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:49:25 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/12 20:15:45 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/16 13:36:21 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ int	main(void)
 	ft_putchar('\n');
 	i = 0;
 	j = 0;
-	while (i <= ft_strlen(str3))
+	while (i <= (int)ft_strlen(str3))
 	{
 		if (str3[i] != '\0')
 			j = 1;

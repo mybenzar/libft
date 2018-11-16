@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 09:30:29 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/16 12:26:11 by mybenzar         ###   ########.fr       */
+/*   Created: 2018/11/16 17:34:31 by mybenzar          #+#    #+#             */
+/*   Updated: 2018/11/16 18:17:04 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	char *str;
+	t_list	*tmp;
 
-	if (!s1 || !s2)
-		return (NULL);
-	if (!(str = (char*)ft_memalloc(ft_strlen(((char*)s1) + ft_strlen((char*)s2) + 1))))
-		return (NULL);
-	str = ft_strsub((char const*)s1, 0, ft_strlen((char*)s1));
-	str = ft_strcat(str, (char*)s2);
-	return (str);
+	if (!alst)
+		return ;
+	tmp = *alst;
+	if (tmp -> next == NULL)
+	{
+		ft_lstdelone(alst, del);
+		return ;
+	}
+	while (*alst)
+	{
+		tmp = *alst;
+		*alst = (*alst) -> next;
+		del(tmp -> content, tmp -> content_size);
+		free(tmp);
+	}
+	free(*alst);
+	*alst = NULL;
 }

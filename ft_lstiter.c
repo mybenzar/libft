@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 09:30:29 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/16 12:26:11 by mybenzar         ###   ########.fr       */
+/*   Created: 2018/11/16 18:27:52 by mybenzar          #+#    #+#             */
+/*   Updated: 2018/11/16 18:48:37 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	char *str;
+	t_list	*tmp;
 
-	if (!s1 || !s2)
-		return (NULL);
-	if (!(str = (char*)ft_memalloc(ft_strlen(((char*)s1) + ft_strlen((char*)s2) + 1))))
-		return (NULL);
-	str = ft_strsub((char const*)s1, 0, ft_strlen((char*)s1));
-	str = ft_strcat(str, (char*)s2);
-	return (str);
+	if (!lst)
+		return ;
+	tmp = lst;
+	while (tmp)
+	{
+		(*f)(tmp);
+		tmp = tmp -> next; 
+	}
 }

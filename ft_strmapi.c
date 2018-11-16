@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 19:51:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/13 19:54:45 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/16 13:18:05 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*str;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	if (!(str = ft_memalloc(ft_strlen((char*)s) + 1)))
 		return (NULL);
 	while (s[i] != '\0')

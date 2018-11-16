@@ -6,32 +6,62 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 18:16:27 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/14 19:39:46 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/16 12:24:20 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+static size_t countwords(char const *s, char c)
 {
-	int		i;
-	int		j;
-	char	**tab;
+	size_t j;
 
-	i = 0;
 	j = 0;
-	while (s[i] != '\0')
+	while (*s)
 	{
-		if (s[i] != c)
-		{
-			if (!(tab = ft_memalloc(i - j + 1)))
-				return (NULL);
-			tab[i] = ft_strsub(s, i, (size_t)(i - j + 1));
-			j = 0;
-		}
+		while (*s == c)
+			s++;
+		if (*s != c && *s)
+			j++;
+		while (*s != c && *s)
+			s++;
+	}
+	return (j);
+}
+
+static size_t countletters(char const *s, char c, int i)
+{
+	size_t j;
+
+	j = 0;
+	while (s[i] != c && s[i] != '\0')
+	{
 		i++;
 		j++;
 	}
-	tab[i] = 0;
+	return (j);
+}
+
+char	**ft_strsplit(char const *s, char c)
+{
+	int		i;
+	size_t	k;
+	char	**tab;
+
+	i = 0;
+	k = -1;
+	if (!s)
+		return (NULL);
+	if (!(tab = (char**)malloc(sizeof(char*) * (countwords(s, c) + 1))))
+		return (NULL);
+	while (++k < countwords(s, c))
+	{
+		while (s[i] == c)
+			i++;
+		if (!(tab[k] = ft_strsub(s, i, countletters(s, c, i))))
+			return (NULL);
+		i = i + countletters(s, c, i);
+	}
+	tab[k] = 0;
 	return (tab);
 }

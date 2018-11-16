@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 09:30:29 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/16 12:26:11 by mybenzar         ###   ########.fr       */
+/*   Created: 2018/11/16 18:49:47 by mybenzar          #+#    #+#             */
+/*   Updated: 2018/11/16 21:27:21 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char *str;
+	t_list	*newlist;
+	t_list	*tmp;
 
-	if (!s1 || !s2)
+	if (!lst || !f)
 		return (NULL);
-	if (!(str = (char*)ft_memalloc(ft_strlen(((char*)s1) + ft_strlen((char*)s2) + 1))))
-		return (NULL);
-	str = ft_strsub((char const*)s1, 0, ft_strlen((char*)s1));
-	str = ft_strcat(str, (char*)s2);
-	return (str);
+	newlist = f(lst);
+	tmp = newlist;
+	while (lst->next)
+	{
+		lst = lst->next;
+		tmp->next = f(lst);
+		tmp = tmp->next;
+	}
+	free(tmp);
+	return (newlist);
 }
