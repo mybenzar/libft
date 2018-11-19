@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 13:07:03 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/19 15:16:18 by mybenzar         ###   ########.fr       */
+/*   Created: 2018/11/19 09:24:39 by mybenzar          #+#    #+#             */
+/*   Updated: 2018/11/19 09:55:03 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_swap(char *a, char *b)
 {
-	int i;
+	char tmp;
 
-	i = 0;
-	if (!s || !f)
-		return ;
-	while (s[i] != '\0')
-	{
-		f(i, &s[i]);
-		i++;
-	}
+	tmp = *b;
+	*b = *a;
+	*a = tmp;
 }

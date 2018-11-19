@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 18:27:52 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/16 18:48:37 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/19 11:07:52 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 	while (tmp)
 	{
 		(*f)(tmp);
-		tmp = tmp -> next; 
+		tmp = tmp->next;
 	}
 }

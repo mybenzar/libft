@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 09:50:49 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/16 11:35:03 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/19 11:10:18 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
 	size_t	len_dst;
 	size_t	i;
 	size_t	j;
-;
+
 	len_dst = ft_strlen((char*)dst);
 	i = len_dst;
 	j = 0;

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:29:06 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/16 21:33:28 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/19 11:05:20 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,23 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				*ft_itoa(int n);
 char				**ft_strsplit(char const *s, char c);
-
 typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
-
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-
-
+void				ft_swap(char *a, char *b);
+char				*ft_strrev(char *str);
+int					ft_sqrt(int nb);
+int					ft_recursive_power(int nb, int power);
+int					ft_list_size(t_list *content);
+void				ft_list_reverse(t_list **alst);
+void				ft_sort_integer_table(int *tab, int size);
 #endif

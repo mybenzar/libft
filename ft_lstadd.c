@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 18:19:46 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/16 18:26:28 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/19 11:07:02 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	ft_lstadd(t_list **alst, t_list *new)
 	if (*alst == NULL)
 		*alst = new;
 	else
-		new -> next = *alst;
+		new->next = *alst;
 	*alst = new;
 }

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 19:56:37 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/16 12:26:50 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/19 11:45:58 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char 	*str;
+	char	*str;
 	int		i;
 
 	i = 0;

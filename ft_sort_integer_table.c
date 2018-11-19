@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 13:07:03 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/19 15:16:18 by mybenzar         ###   ########.fr       */
+/*   Created: 2018/11/19 10:59:50 by mybenzar          #+#    #+#             */
+/*   Updated: 2018/11/19 11:05:09 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_sort_integer_table(int *tab, int size)
 {
-	int i;
+	int	i;
+	int	tmp;
 
 	i = 0;
-	if (!s || !f)
-		return ;
-	while (s[i] != '\0')
+	while (i < size)
 	{
-		f(i, &s[i]);
+		if (tab[i] >= tab[i + 1])
+		{
+			tmp = tab[i + 1];
+			tab[i + 1] = tab[i];
+			tab[i] = tmp;
+			i++;
+		}
 		i++;
 	}
 }

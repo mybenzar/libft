@@ -6,13 +6,13 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 18:16:27 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/16 12:24:20 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/19 11:45:32 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t countwords(char const *s, char c)
+static size_t	countwords(char const *s, char c)
 {
 	size_t j;
 
@@ -29,7 +29,7 @@ static size_t countwords(char const *s, char c)
 	return (j);
 }
 
-static size_t countletters(char const *s, char c, int i)
+static size_t	countletters(char const *s, char c, int i)
 {
 	size_t j;
 
@@ -42,7 +42,7 @@ static size_t countletters(char const *s, char c, int i)
 	return (j);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	int		i;
 	size_t	k;

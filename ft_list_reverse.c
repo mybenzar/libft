@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_list_reverse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 13:07:03 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/19 15:16:18 by mybenzar         ###   ########.fr       */
+/*   Created: 2018/11/19 10:47:44 by mybenzar          #+#    #+#             */
+/*   Updated: 2018/11/19 10:57:29 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_list_reverse(t_list **alst)
 {
-	int i;
+	t_list	*before;
+	t_list	*tmp;
+	t_list	*after;
 
-	i = 0;
-	if (!s || !f)
+	if (!alst)
 		return ;
-	while (s[i] != '\0')
+	before = NULL;
+	tmp = *alst;
+	while (tmp)
 	{
-		f(i, &s[i]);
-		i++;
+		after = tmp->next;
+		tmp->next = before;
+		before = tmp;
+		tmp = after;
 	}
+	*alst = before;
 }

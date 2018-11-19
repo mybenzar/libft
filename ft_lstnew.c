@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 14:00:26 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/16 19:52:50 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/19 11:09:22 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	t_list 	*tmp;
+	t_list	*tmp;
 
 	if (!(tmp = malloc(sizeof(t_list))))
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 09:47:52 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/16 13:35:34 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/19 11:44:54 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strtrim(char const *s)
 {
 	char	*str;
-	size_t 	i;
+	size_t	i;
 	size_t	j;
 
 	i = 0;
