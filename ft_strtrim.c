@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 09:47:52 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/19 11:44:54 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/20 20:22:44 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,15 @@ char	*ft_strtrim(char const *s)
 		i++;
 	while (s[j] == 32 || s[j] == '\t' || s[j] == '\n')
 		j--;
-	if (!s)
-		return (NULL);
 	if (i == ft_strlen((char*)s))
-		str = ft_strdup(s + i);
+	{
+		if (!(str = ft_strdup(s + i)))
+			return (NULL);
+	}
 	else
-		str = ft_strsub(s, i, (j - i + 1));
+	{
+		if (!(str = ft_strsub(s, i, (j - i + 1))))
+			return (NULL);
+	}
 	return (str);
 }

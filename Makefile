@@ -6,7 +6,7 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 16:20:39 by mybenzar          #+#    #+#              #
-#    Updated: 2018/11/20 13:21:34 by mybenzar         ###   ########.fr        #
+#    Updated: 2018/11/20 13:18:03 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,11 +84,9 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@ar rc $(NAME) $(OBJ)
-
-$(OBJ):
+$(NAME):
 	@gcc $(FLAGS) -c $(SRC)
+	@ar rc $(NAME) $(OBJ)
 
 clean:
 	@rm -rf $(OBJ)

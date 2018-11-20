@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 19:49:32 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/19 16:17:18 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/20 12:23:25 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	unsigned char	*ptr2;
 
 	i = 0;
+	if (!dst && !src)
+		return (NULL);
 	ptr1 = (unsigned char*)dst;
 	ptr2 = (unsigned char*)src;
 	while (i < (int)n)
