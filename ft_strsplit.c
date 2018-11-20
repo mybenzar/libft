@@ -6,11 +6,12 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 18:16:27 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/19 11:45:32 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/19 17:07:00 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static size_t	countwords(char const *s, char c)
 {

@@ -6,17 +6,20 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 12:57:22 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/19 14:51:12 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/19 17:02:46 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static int	count_digits(unsigned int n)
 {
 	int i;
 
 	i = 0;
+	if (n == 0)
+		return (1);
 	while (n > 0)
 	{
 		n = n / 10;
@@ -50,13 +53,6 @@ char		*ft_itoa(int n)
 	i = 0;
 	k = 0;
 	nb = n;
-	if (n == 0)
-	{
-		if (!(ptr = (char*)malloc(2)))
-			return (NULL);
-		ptr = "0";
-		return (ptr);
-	}
 	if (n < 0)
 	{
 		nb = -n;

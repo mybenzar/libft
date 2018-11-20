@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 14:29:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/14 18:55:23 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/19 16:21:34 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned long	i;
+	size_t			i;
 	unsigned char	*dst2;
 	unsigned char	*src2;
 

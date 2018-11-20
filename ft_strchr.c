@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 12:45:07 by mybenzar          #+#    #+#             */
-/*   Updated: 2018/11/12 16:39:13 by mybenzar         ###   ########.fr       */
+/*   Updated: 2018/11/19 16:40:40 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ char	*ft_strchr(const char *s, int c)
 	if (s[i] == '\0' && (char)c != '\0')
 		return (NULL);
 	else
-		return ((char*)s + i);
+		return ((char*)(s + i));
 }
